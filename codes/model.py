@@ -119,7 +119,7 @@ class KGEModel(nn.Module):
             raise ValueError('ComplEx should use --double_entity_embedding and --double_relation_embedding')
 
 
-    def forward(self, sample, mode='single', if_CE=False, if_Mutup=False, if_Mixup=False, if_OnlyLS=False):
+    def forward(self, sample, mode='single', if_CE=False, if_EMU=False, if_Mixup=False, if_OnlyLS=False):
         '''
         Forward function that calculate the score of a batch of triples.
         In the 'single' mode, sample is a batch of triple.
@@ -202,13 +202,13 @@ class KGEModel(nn.Module):
                         index=tail_part[:, 0]
                     ).view(batch_size, 1, -1)
                     head = torch.cat((head_t, head), dim=1) # batch, 1+neg, ch
-                    if if_Mutup:
+                    if if_EMU:
                         if if_Mixup:  # Mixup
                             _mut_ratio = rng.beta(2, 1, size=(head.size(0), head.size(1), 1)).astype(np.float32)
                             mix_label = _mut_ratio
-                        else:  # Mutup
+                        else:  # EMU
                             _mut_ratio = rng.choice([0, 1], size=head.size(),
-                                                    p=[1. - if_Mutup, if_Mutup]).astype(np.float32)
+                                                    p=[1. - if_EMU, if_EMU]).astype(np.float32)
                         _mut_ratio[:, 0] = 1.  # positive sample
                         _mut_ratio = torch.from_numpy(_mut_ratio).cuda()
                         if not if_OnlyLS:
@@ -295,13 +295,13 @@ class KGEModel(nn.Module):
                         index=head_part[:, 2]
                     ).view(batch_size, 1, -1)
                     tail = torch.cat((tail_t, tail), dim=1) # batch, 1+neg, ch
-                    if if_Mutup:
+                    if if_EMU:
                         if if_Mixup:  # Mixup
                             _mut_ratio = rng.beta(2, 1, size=(tail.size(0), tail.size(1), 1)).astype(np.float32)
                             mix_label = _mut_ratio
                         else:
                             _mut_ratio = rng.choice([0, 1], size=tail.size(),
-                                                    p=[1. - if_Mutup, if_Mutup]).astype(np.float32)
+                                                    p=[1. - if_EMU, if_EMU]).astype(np.float32)
                         _mut_ratio[:, 0] = 1.  # positive sample
                         _mut_ratio = torch.from_numpy(_mut_ratio).cuda()
                         if not if_OnlyLS:
@@ -548,16 +548,16 @@ class KGEModel(nn.Module):
                 label[:, 0] = 1.
             loss = nn.CrossEntropyLoss(reduction='mean')(pred, label)
 
-            if args.if_Mutup:
+            if args.if_EMU:
                 pred, mix_label = model((positive_sample, negative_sample), mode=mode, if_CE=args.if_CE,
-                                        if_Mutup=args.if_Mutup, if_Mixup=args.if_Mixup, if_OnlyLS=args.if_OnlyLS)
+                                        if_EMU=args.if_EMU, if_Mixup=args.if_Mixup, if_OnlyLS=args.if_OnlyLS)
                 if args.neg_label is not None:
                     neg_label = args.neg_label
                 else:
-                    if args.if_Mutup:
+                    if args.if_EMU:
                         neg_label = 1. - mix_label
                     else:
-                        neg_label = 1. - args.if_Mutup
+                        neg_label = 1. - args.if_EMU
                 label = neg_label * torch.ones_like(pred, device=torch.device('cuda'))
                 label[:, 0] = 1.
                 loss = nn.CrossEntropyLoss(reduction='mean')(pred, label) / negative_sample.size(1) \

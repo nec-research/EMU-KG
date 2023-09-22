@@ -105,7 +105,7 @@ def parse_args(args=None):
     parser.add_argument('--nrelation', type=int, default=0, help='DO NOT MANUALLY SET')
 
     parser.add_argument('-if_CE', type=int, default=0)
-    parser.add_argument('-if_Mutup', type=float, default=0.)
+    parser.add_argument('-if_EMU', type=float, default=0.)
     parser.add_argument('-if_Mixup', type=float, default=0.)
     parser.add_argument('-if_OnlyLS', type=float, default=0.)
     parser.add_argument('-CE_coef', type=float, default=0.)
@@ -223,11 +223,11 @@ def log_metrics(mode, step, metrics):
 
 
 def main(args,
-         if_Mutup=None, neg_label=None, CE_coef=None):
+         if_EMU=None, neg_label=None, CE_coef=None):
     #  for Optuna
     if args.if_Optuna:
-        if if_Mutup is not None:
-            args.__setattr__('if_Mutup', if_Mutup)
+        if if_EMU is not None:
+            args.__setattr__('if_EMU', if_EMU)
         if neg_label is not None:
             args.__setattr__('neg_label', neg_label)
         if CE_coef is not None:

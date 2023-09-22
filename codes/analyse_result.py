@@ -62,7 +62,7 @@ def main():
             title = fl.split('/')[-1].split('_')
             index1.append(title[0])
             index2.append(title[1])
-            if title[3] == 'Mutup':
+            if title[3] == 'EMU':
                 index3.append(title[2] + '_' + title[3])
             else:
                 index3.append(title[2])

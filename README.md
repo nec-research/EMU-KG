@@ -1,12 +1,12 @@
-# MUTUP – A new Efficient Negative Sampling Method For Knowledge-Graph Link Prediction
+# EMU – Efficient Negative Sampling Method For Knowledge-Graph Link Prediction
 
 ## Introduction
 
-This repository provides the PyTorch implementation of _MUTUP_ technique presented in _MUTUP – A new Efficient Negative Sampling Method For Knowledge-Graph Link Prediction_ paper as well as several popular KGE models.
+This repository provides the PyTorch implementation of _EMU_ technique presented in _EMU – Efficient Negative Sampling Method For Knowledge-Graph Link Prediction_ paper as well as several popular KGE models.
 
 ## Execution
 
-As an example, the following command trains and validates a TransE model on wn18rr dataset by using Mutup with uniform negative samplingd:
+As an example, the following command trains and validates a TransE model on wn18rr dataset by using EMU with uniform negative sampling:
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 python -u codes/run.py --cuda \
@@ -25,7 +25,7 @@ To check all the available arguments, you can run `python codes/run.py --help`.
 
 ## Reproducibility
 
-To reproduce the results presented in the ARR 2023 Feb. paper _MUTUP – A new Efficient Negative Sampling Method For Knowledge-Graph Link Prediction_, you can use the commands provided in `experiments_Mutup.sh`.
+To reproduce the results presented in the ICLR 2024 paper _EMU : Efficient Negative Sampling Method For Knowledge-Graph Link Prediction_, you can use the commands provided in `experiments_EMU.sh`.
 
 ## Infrustrucutre
 
