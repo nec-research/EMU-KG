@@ -1,5 +1,7 @@
 # EMU – Efficient Negative Sampling Method For Knowledge-Graph Link Prediction
 
+![EMU schematic picture](/EMU-schematic.png)
+
 ## Introduction
 
 This repository provides the PyTorch implementation of _EMU_ technique presented in _EMU – Efficient Negative Sampling Method For Knowledge-Graph Link Prediction_ paper as well as several popular KGE models.
@@ -25,7 +27,7 @@ To check all the available arguments, you can run `python codes/run.py --help`.
 
 ## Reproducibility
 
-To reproduce the results presented in the ICLR 2024 paper _EMU : Efficient Negative Sampling Method For Knowledge-Graph Link Prediction_, you can use the commands provided in `experiments_EMU.sh`.
+To reproduce the results presented in the TMLR paper _EMU : Efficient Negative Sampling Method For Knowledge-Graph Link Prediction_, you can use the commands provided in `experiments_EMU.sh`.
 
 ## Infrustrucutre
 
