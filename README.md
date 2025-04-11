@@ -29,6 +29,12 @@ To check all the available arguments, you can run `python codes/run.py --help`.
 
 To reproduce the results presented in the TMLR paper _Optimal Embedding Guided Negative Sample Generation for Knowledge Graph Link Prediction_, you can use the commands provided in `experiments_EMU.sh`.
 
+The [Mamba](https://mamba.readthedocs.io/en/latest/index.html) environment can be reproduced using `environment.yml` as: 
+
+```
+mamba env create -f environment.yml
+```
+
 ## Infrustrucutre
 
 All experiments were carried on a server with one NVIDIA GeForce GTX 1080 Ti GPU.
@@ -36,3 +42,17 @@ All experiments were carried on a server with one NVIDIA GeForce GTX 1080 Ti GPU
 ## Acknowledgments
 
 Our implemention is based on the PyTorch implementation of _Structure Aware Negative Sampling in Knowledge Graphs_ provided [here](https://github.com/kahrabian/SANS).
+
+## Citation
+
+```bibtex
+@misc{takamoto2025optimalembeddingguidednegative,
+      title={Optimal Embedding Guided Negative Sample Generation for Knowledge Graph Link Prediction}, 
+      author={Makoto Takamoto and Daniel Oñoro-Rubio and Wiem Ben Rim and Takashi Maruyama and Bhushan Kotnis},
+      year={2025},
+      eprint={2504.03327},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2504.03327}, 
+}
+```

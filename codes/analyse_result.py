@@ -42,7 +42,6 @@ import pandas as pd
 import numpy as np
 import glob
 import _pickle as cPickle
-import matplotlib.pyplot as plt
 
 def main():
     # get results
