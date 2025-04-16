@@ -46,6 +46,18 @@ Our implemention is based on the PyTorch implementation of _Structure Aware Nega
 ## Citation
 
 ```bibtex
+@article{
+takamoto2025optimal,
+title={Optimal Embedding Guided Negative Sample Generation for Knowledge Graph Link Prediction},
+author={Makoto Takamoto and Daniel Onoro Rubio and Wiem Ben Rim and Takashi Maruyama and Bhushan Kotnis},
+journal={Transactions on Machine Learning Research},
+issn={2835-8856},
+year={2025},
+url={https://openreview.net/forum?id=B4SyciDyIh},
+note={}
+}
+```
+```bibtex
 @misc{takamoto2025optimalembeddingguidednegative,
       title={Optimal Embedding Guided Negative Sample Generation for Knowledge Graph Link Prediction}, 
       author={Makoto Takamoto and Daniel Oñoro-Rubio and Wiem Ben Rim and Takashi Maruyama and Bhushan Kotnis},
