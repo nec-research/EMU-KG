@@ -35,13 +35,13 @@ The [Mamba](https://mamba.readthedocs.io/en/latest/index.html) environment can b
 mamba env create -f environment.yml
 ```
 
-## Infrustrucutre
+## Infrastructure
 
 All experiments were carried on a server with one NVIDIA GeForce GTX 1080 Ti GPU.
 
 ## Acknowledgments
 
-Our implemention is based on the PyTorch implementation of _Structure Aware Negative Sampling in Knowledge Graphs_ provided [here](https://github.com/kahrabian/SANS).
+Our implementation is based on the PyTorch implementation of _Structure Aware Negative Sampling in Knowledge Graphs_ provided [here](https://github.com/kahrabian/SANS).
 
 ## Citation
 
